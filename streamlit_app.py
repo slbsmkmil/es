@@ -984,5 +984,3 @@ footer {
 
 # Render the HTML in Streamlit
 st.markdown(html_content, unsafe_allow_html=True)
-if __name__ == '__main__':
-    app.run(debug=True)
