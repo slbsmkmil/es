@@ -21,6 +21,9 @@
     </script>
 </head>
 <body>
+    <div id="emergencyNotification" class="hide">
+        Emergency Alert: Immediate Action Required!
+    </div>
     <header>
         <h1>Emergency Numbers by Country</h1>
         <input type="text" id="searchInput" onkeyup="searchCountry()" placeholder="Search for countries..">
@@ -32,6 +35,7 @@
                     <th>Country</th>
                     <th>Emergency Number(s)</th>
                 </tr>
+                
             </thead>
             <tbody>
                 <tr>
@@ -806,4 +810,19 @@
         <p>Data source: Various public resources</p>
     </footer>
 </body>
+
+    <script>
+        function showEmergencyNotification() {
+    const notification = document.getElementById('emergencyNotification');
+    notification.classList.remove('hide');
+    notification.classList.add('show');
+}
+
+function hideEmergencyNotification() {
+    const notification = document.getElementById('emergencyNotification');
+    notification.classList.remove('show');
+    notification.classList.add('hide');
+}
+
+    </script>
 </html>
