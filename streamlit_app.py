@@ -1,10 +1,7 @@
-from flask import Flask, Response
+import streamlit as st
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    html_content = '''
+# Define the HTML and CSS content
+html_content = """
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -983,8 +980,9 @@ footer {
 
     </script>
 </html>
-'''
-    return Response(html_content, mimetype='text/html')
+"""
 
+# Render the HTML in Streamlit
+st.markdown(html_content, unsafe_allow_html=True)
 if __name__ == '__main__':
     app.run(debug=True)
