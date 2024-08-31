@@ -21,9 +21,8 @@
     </script>
 </head>
 <body>
-    <div id="emergencyNotification" class="hide">
-        Emergency Alert: Immediate Action Required!
-    </div>
+    <audio id="alertSound" src="alert-sound.mp3" preload="auto"></audio>
+
     <header>
         <h1>Emergency Numbers by Country</h1>
         <input type="text" id="searchInput" onkeyup="searchCountry()" placeholder="Search for countries..">
@@ -812,17 +811,17 @@
 </body>
 
     <script>
-        function showEmergencyNotification() {
-    const notification = document.getElementById('emergencyNotification');
-    notification.classList.remove('hide');
-    notification.classList.add('show');
-}
+      document.addEventListener('DOMContentLoaded', () => {
+    const alertSound = document.getElementById('alertSound');
+    const phoneLinks = document.querySelectorAll('tr td a[href^="tel:"]');
 
-function hideEmergencyNotification() {
-    const notification = document.getElementById('emergencyNotification');
-    notification.classList.remove('show');
-    notification.classList.add('hide');
-}
+    phoneLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            alertSound.play(); // Play the sound when any link is clicked
+        });
+    });
+});
+
 
     </script>
 </html>
